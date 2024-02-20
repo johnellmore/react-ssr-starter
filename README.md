@@ -51,3 +51,7 @@ npm run build
 ```
 
 The contents of the `dist/` directory can then be deployed. All dependencies are bundled, and there's no need to deploy `node_modules` or other external dependencies.
+
+## License
+
+Public domain via [The Unlicense](https://choosealicense.com/licenses/unlicense/#). If you find this useful, you can say "thanks" by showing kindness today to someone who doesn't deserve it.

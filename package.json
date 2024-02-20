@@ -11,7 +11,7 @@
     "dev": "concurrently -n be,fe,srv \"node scripts/buildBackend.js --watch\" \"node scripts/buildFrontend.js --watch\" \"npm:start\""
   },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "Unlicense",
   "dependencies": {
     "express": "^4.18.2",
     "react": "^18.2.0",
