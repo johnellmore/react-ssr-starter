@@ -4,8 +4,8 @@ import { SsrRenderer } from "./react/SsrRenderer";
 import { registeredLoaders, registeredViews } from "./handlers/registry";
 
 const app = express();
-const port = 3000;
 
+// serve the frontend JS bundle, as well as any other static files
 app.use(
   "/static",
   express.static(resolve(__dirname, "./static"), {
@@ -14,14 +14,13 @@ app.use(
   })
 );
 
-// The SsrRenderer takes the list of all registered loaders and views and their
+// The SsrRenderer takes the list of all registered loaders, views, and their
 // keys, and can generate the request-serving function for a given loader key.
 const ssr = new SsrRenderer(registeredLoaders(), registeredViews());
-
 app.get("/", ssr.makeHandler("home"));
 app.get("/server-side-example", ssr.makeHandler("server-side-example"));
 app.get("/client-side-example", ssr.makeHandler("client-side-example"));
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const server = app.listen(3000, () => {
+  console.log(`Server running at http://localhost:${server.address()?.port}`);
 });

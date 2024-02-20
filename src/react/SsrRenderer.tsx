@@ -60,7 +60,8 @@ function renderDoc({
   <!doctype html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <!-- prevent favicon.ico requests (TODO replace this) -->
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>${title}</title>
     </head>
