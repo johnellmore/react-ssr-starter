@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import { renderToString } from "react-dom/server";
-import { App } from "../react/App";
+import { App } from "./App";
 import { Request, Response } from "express";
 import { LoaderRegistry, ViewRegistry } from "../lib/types";
 

@@ -15,7 +15,8 @@ export function ServerSideView() {
   const { characters } = useLoader<typeof ServerSideLoader>();
   return (
     <div>
-      <h1>Futurama characters</h1>
+      <h1>Server-side fetch</h1>
+      <h2>Futurama characters</h2>
       <ul>
         {characters.map((c) => (
           <li key={c}>{c}</li>

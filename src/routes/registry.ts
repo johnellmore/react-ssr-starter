@@ -3,7 +3,7 @@ import {
   ServerSideLoader,
   ServerSideView,
 } from "../handlers/ServersideExample";
-import { HomeLoader, HomeView } from "../handlers/Home";
+import { BasicExampleLoader, BasicExampleView } from "../handlers/BasicExample";
 
 const NoOpLoader = () => ({});
 
@@ -19,7 +19,7 @@ const NoOpLoader = () => ({});
  */
 export function registeredLoaders() {
   return {
-    home: HomeLoader,
+    home: BasicExampleLoader,
     "server-side-example": ServerSideLoader,
     "client-side-example": NoOpLoader,
   };
@@ -32,7 +32,7 @@ type LoaderKeys = keyof ReturnType<typeof registeredLoaders>;
  */
 export function registeredViews(): Record<LoaderKeys, React.FC> {
   return {
-    home: HomeView,
+    home: BasicExampleView,
     "server-side-example": ServerSideView,
     "client-side-example": ClientSideView,
   };
