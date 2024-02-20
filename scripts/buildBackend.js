@@ -1,3 +1,8 @@
+/**
+ * Builds the backend. Invoke using `node buildBackend.js`. Pass the `--watch`
+ * flag to enable watch mode for development.
+ */
+
 const esbuild = require("esbuild");
 
 const opts = {
@@ -15,5 +20,6 @@ const opts = {
     console.log("watching for changes");
   } else {
     await esbuild.build(opts);
+    console.log("backend built");
   }
 })();

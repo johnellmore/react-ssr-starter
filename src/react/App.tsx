@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { LoaderProvider } from "./useLoader";
-import { ViewRegistry } from "../lib/types";
+import { ViewRegistry } from "../types";
 
 type AppProps = {
   views: ViewRegistry<string>;

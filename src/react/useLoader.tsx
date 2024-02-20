@@ -2,9 +2,14 @@ import { useContext, createContext } from "react";
 
 const LoaderContext = createContext<any>(null);
 
+/**
+ * React hook to get the server-provided view state. This should generally only
+ * be used in the top-level view component.
+ */
 export function useLoader<T extends (...args: any) => any>(): Awaited<
   ReturnType<T>
 > {
+  // client-side access
   if (typeof window !== "undefined") {
     return (window as any).__reactUseLoaderState;
   }

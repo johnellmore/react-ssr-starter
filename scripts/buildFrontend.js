@@ -1,3 +1,8 @@
+/**
+ * Builds the frontend. Invoke using `node buildFrontend.js`. Pass the `--watch`
+ * flag to enable watch mode for development.
+ */
+
 const fs = require("fs");
 const path = require("path");
 const esbuild = require("esbuild");
@@ -13,6 +18,8 @@ const opts = {
   entryPoints: ["src/frontend.tsx"],
   bundle: true,
   platform: "browser",
+  minify: true,
+  sourcemap: true,
   outdir: "dist/static",
   plugins: [manifestPlugin()],
 };
@@ -24,5 +31,6 @@ const opts = {
     console.log("watching for changes");
   } else {
     await esbuild.build(opts);
+    console.log("frontend built");
   }
 })();

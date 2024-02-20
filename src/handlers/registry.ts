@@ -1,9 +1,6 @@
-import { ClientSideView } from "../handlers/ClientsideExample";
-import {
-  ServerSideLoader,
-  ServerSideView,
-} from "../handlers/ServersideExample";
-import { BasicExampleLoader, BasicExampleView } from "../handlers/BasicExample";
+import { ClientSideView } from "./ClientsideExample";
+import { ServerSideLoader, ServerSideView } from "./ServersideExample";
+import { BasicExampleLoader, BasicExampleView } from "./BasicExample";
 
 const NoOpLoader = () => ({});
 

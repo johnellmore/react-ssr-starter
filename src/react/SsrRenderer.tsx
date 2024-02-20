@@ -3,15 +3,17 @@ import { resolve } from "path";
 import { renderToString } from "react-dom/server";
 import { App } from "./App";
 import { Request, Response } from "express";
-import { LoaderRegistry, ViewRegistry } from "../lib/types";
+import { LoaderRegistry, ViewRegistry } from "../types";
 
+/**
+ * Given a set of loaders and views, this class can create an Express handler
+ * that executes the loader and then server-side-renders the view.
+ */
 export class SsrRenderer<T extends LoaderRegistry> {
   constructor(
     private readonly loaders: T,
     private readonly views: ViewRegistry<keyof T>
-  ) {
-    //
-  }
+  ) {}
 
   makeHandler(key: keyof T) {
     if (typeof key !== "string") {
@@ -39,13 +41,21 @@ export class SsrRenderer<T extends LoaderRegistry> {
   }
 }
 
-type Doc = {
+/**
+ * Render the HTML page skeleton that the app will live inside. This includes
+ * the view key and the view state coming from the server.
+ */
+function renderDoc({
+  title,
+  html,
+  state,
+  viewKey,
+}: {
   title: string;
   html: string;
   state: object;
   viewKey: string;
-};
-function renderDoc({ title, html, state, viewKey }: Doc): string {
+}): string {
   return `
   <!doctype html>
     <html lang="en">
@@ -67,6 +77,12 @@ function renderDoc({ title, html, state, viewKey }: Doc): string {
 }
 
 let manifest: Record<string, string> | undefined;
+
+/**
+ * Finds the hashed-suffixed path for a file in the manifest. This works in
+ * conjunction with `esbuild-plugin-manifest` to allow for cache-busting static
+ * assets.
+ */
 function pathFromManifest(path: string): string {
   if (!manifest) {
     const mainfestPath = resolve(__dirname, "./static/manifest.json");
