@@ -2,7 +2,9 @@ import { useContext, createContext } from "react";
 
 const LoaderContext = createContext<any>(null);
 
-export function useLoader<T extends (...args: any) => any>(): ReturnType<T> {
+export function useLoader<T extends (...args: any) => any>(): Awaited<
+  ReturnType<T>
+> {
   if (typeof window !== "undefined") {
     return (window as any).__reactUseLoaderState;
   }

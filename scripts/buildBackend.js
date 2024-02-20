@@ -1,7 +1,7 @@
 const esbuild = require("esbuild");
 
 const opts = {
-  entryPoints: ["src/server.ts"],
+  entryPoints: ["src/backend.ts"],
   bundle: true,
   platform: "node",
   target: "node20",

@@ -10,7 +10,7 @@ if (fs.existsSync(distStatic)) {
 }
 
 const opts = {
-  entryPoints: ["src/client.tsx"],
+  entryPoints: ["src/frontend.tsx"],
   bundle: true,
   platform: "browser",
   outdir: "dist/static",

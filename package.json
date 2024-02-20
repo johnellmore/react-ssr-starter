@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:be": "node scripts/buildServer.js --watch",
-    "build:fe": "node scripts/buildClient.js --watch",
-    "start": "nodemon dist/server.js",
-    "dev": "concurrently \"npm:build:be\" \"npm:build:fe\" \"npm:start\"",
+    "build:backend": "node scripts/buildBackend.js --watch",
+    "build:frontend": "node scripts/buildFrontend.js --watch",
+    "start": "nodemon dist/backend.js",
+    "dev": "concurrently \"npm:build:backend\" \"npm:build:frontend\" \"npm:start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
