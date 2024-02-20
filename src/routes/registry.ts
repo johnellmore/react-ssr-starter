@@ -1,8 +1,11 @@
+import { ClientSideView } from "../handlers/ClientsideExample";
 import {
-  DatabaseExampleLoader,
-  DatabaseExampleView,
-} from "../handlers/DatabaseExample";
+  ServerSideLoader,
+  ServerSideView,
+} from "../handlers/ServersideExample";
 import { HomeLoader, HomeView } from "../handlers/Home";
+
+const NoOpLoader = () => ({});
 
 /**
  * Defines each loader that is registered with the backend. Each loader is given
@@ -17,7 +20,8 @@ import { HomeLoader, HomeView } from "../handlers/Home";
 export function registeredLoaders() {
   return {
     home: HomeLoader,
-    "database-example": DatabaseExampleLoader,
+    "server-side-example": ServerSideLoader,
+    "client-side-example": NoOpLoader,
   };
 }
 type LoaderKeys = keyof ReturnType<typeof registeredLoaders>;
@@ -29,6 +33,7 @@ type LoaderKeys = keyof ReturnType<typeof registeredLoaders>;
 export function registeredViews(): Record<LoaderKeys, React.FC> {
   return {
     home: HomeView,
-    "database-example": DatabaseExampleView,
+    "server-side-example": ServerSideView,
+    "client-side-example": ClientSideView,
   };
 }

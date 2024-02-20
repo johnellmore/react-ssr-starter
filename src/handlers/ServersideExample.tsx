@@ -1,6 +1,6 @@
 import { useLoader } from "../react/useLoader";
 
-export async function DatabaseExampleLoader() {
+export async function ServerSideLoader() {
   // demonstrates fetching data from a remote source, like a database or an API
   const resp = await fetch("https://api.sampleapis.com/futurama/characters");
   const json: { name: { first: string; middle: string; last: string } }[] =
@@ -11,8 +11,8 @@ export async function DatabaseExampleLoader() {
   return { characters };
 }
 
-export function DatabaseExampleView() {
-  const { characters } = useLoader<typeof DatabaseExampleLoader>();
+export function ServerSideView() {
+  const { characters } = useLoader<typeof ServerSideLoader>();
   return (
     <div>
       <h1>Futurama characters</h1>

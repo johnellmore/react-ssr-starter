@@ -51,6 +51,7 @@ function renderDoc({ title, html, state, viewKey }: Doc): string {
     <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>${title}</title>
     </head>
     <body>

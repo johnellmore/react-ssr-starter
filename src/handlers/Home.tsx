@@ -16,6 +16,14 @@ export function HomeView() {
       <p>Random number received from server: {random}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
       <p>Current number on client: {count}</p>
+      <ul>
+        <li>
+          <a href="/server-side-example">Server-side fetch example</a>
+        </li>
+        <li>
+          <a href="/client-side-example">Client-side load example</a>
+        </li>
+      </ul>
     </div>
   );
 }

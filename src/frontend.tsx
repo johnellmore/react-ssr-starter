@@ -1,7 +1,7 @@
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
 import { App } from "./react/App";
-import { registeredViews } from "./routes/routes";
+import { registeredViews } from "./routes/registry";
 
 const container = document.getElementById("app")!;
 const views = registeredViews();

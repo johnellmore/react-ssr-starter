@@ -2,13 +2,13 @@
   "name": "react-ssr-ts-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/backend.js",
   "scripts": {
-    "build:backend": "node scripts/buildBackend.js --watch",
-    "build:frontend": "node scripts/buildFrontend.js --watch",
+    "build:backend": "node scripts/buildBackend.js",
+    "build:frontend": "node scripts/buildFrontend.js",
+    "build": "npm run build:backend && npm run build:frontend",
     "start": "nodemon dist/backend.js",
-    "dev": "concurrently \"npm:build:backend\" \"npm:build:frontend\" \"npm:start\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently -n be,fe,srv \"node scripts/buildBackend.js --watch\" \"node scripts/buildFrontend.js --watch\" \"npm:start\""
   },
   "author": "",
   "license": "UNLICENSED",
