@@ -2,6 +2,10 @@ import { ClientSideView } from "./ClientsideExample";
 import { ServerSideLoader, ServerSideView } from "./ServersideExample";
 import { BasicExampleLoader, BasicExampleView } from "./BasicExample";
 
+/**
+ * Stand-in when no loader is needed. Use this when your view doesn't need any
+ * server-side data.
+ */
 const NoOpLoader = () => ({});
 
 /**

@@ -6,8 +6,8 @@ It's an alternative to opinionated frameworks (Next.js, Remix, Sveltekit, others
 
 * no forced route file conventions that are difficult/impossible to override
 * no hidden build process
-* no one-true-way to build middleware, use a queue, etc.
-* and other 
+* no one-true-way to build middleware, use a queue, or do authentication
+* etc.
 
 Instead, all of the plumbing is in plain sight and is fully customizable.
 
@@ -25,10 +25,10 @@ It adapts one useful convention from Remix: the interior structure of a route fi
 
 ### Cons
 
-* **More manual steps to register loaders and views**. See the `src/routes/registry.ts` file for how this works. This is necessary to avoid a build step that scans for a file structure.
-* **No client-side bundle splitting by route/view.** This is nice to have for SEO- or performance-sensitive apps, but not always needed for basic SPAs.
-* **Image bundling, WebAssembly bundling, etc. requires additional work.** The good news is that there's typically an esbuild plugin for just about everything. It's trivial to build your own plugin if not.
-* **SSR rendering is done using [`renderToString`](https://react.dev/reference/react-dom/server/renderToString).** This doesn't support streaming. Streaming isn't necessary for most use cases, and it adds some complexity. That said, PRs are welcome to adjust this to [`renderToPipeableStream`](https://react.dev/reference/react-dom/server/renderToPipeableStream).
+* **More manual steps to register loaders and views**. See the [`src/handlers/registry.ts`](src/handlers/registry.ts) file for how this works. This is necessary to avoid a build step that scans for a file structure.
+* **No client-side bundle splitting by route/view.** This is nice to have for SEO- or performance-sensitive apps, but not always needed for small apps or apps where the average user session is expected to span multiple page loads.
+* **Image bundling, WebAssembly bundling, etc. requires additional work.** There's typically an esbuild plugin for just about everything, and it's trivial to build your own plugin if not.
+* **SSR rendering is done using [`renderToString`](https://react.dev/reference/react-dom/server/renderToString).** This doesn't support streaming. Streaming adds complexity and isn't necessary for most use cases.
 
 ## Getting started
 
